@@ -1,0 +1,11 @@
+version: '3'
+services:
+  product-server:
+    restart: always
+    build:                           #构建自定义镜像
+      context: /root/web-server      #指定Dockerfile文件的路径
+      dockerfile: Dockerfile         #指定Dockerfile文件的名称
+    image: product-server
+    container_name: product-server
+    ports:
+      - 8083:8083
