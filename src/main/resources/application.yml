@@ -1,17 +1,17 @@
 server:
   port: 8083
 
-#spring:
-#  application:
-#    name: product-server
+spring:
+  application:
+    name: product-server
 #  rabbitmq:
 #    # 集群节点
 #    addresses: 192.168.126.147:5672,192.168.126.147:5673,192.168.126.147:5674
 #    username: guest
 #    password: guest
-#  datasource:  # 数据源的相关配置
-#    url: jdbc:mysql://192.168.126.147:3306/mysql?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-#    password: 123456
+  datasource:  # 数据源的相关配置
+    url: jdbc:mysql://192.168.126.147:3306/mysql?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: 123456
 #  redis:
 #    lettuce:
 #      pool:
@@ -23,11 +23,11 @@ server:
 #      master: mymaster
 #      nodes: 192.168.126.146:26379,192.168.126.147:26379,192.168.126.148:26379
 
-#eureka:
-#  client:
-#    #false表示不向注册中心注册自己。
-#    registerWithEureka: true
-#    #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://192.168.126.148:8761/eureka,http://192.168.126.146:8900/eureka,http://192.168.126.147:8901/eureka
+eureka:
+  client:
+    #false表示不向注册中心注册自己。
+    registerWithEureka: true
+    #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
