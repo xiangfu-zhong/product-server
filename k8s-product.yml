@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: test
+  name: product
+  labels:
+    app: product
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+    spec:
+      containers:
+        - name: product
+          image: 192.168.126.146:80/repo/product:v1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: test
+  name: product
+  labels:
+    app: product
+spec:
+  selector:
+    app: product
+  ports:
+    - port: 8082
+      targetPort: 8081
+  type: NodePort
+
