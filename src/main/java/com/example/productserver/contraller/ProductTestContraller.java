@@ -2,6 +2,8 @@ package com.example.productserver.contraller;
 
 import com.example.productserver.vo.User;
 import org.apache.commons.lang3.SerializationUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 @RequestMapping("/productTestContraller")
 public class ProductTestContraller {
 
+    private static Log log= LogFactory.getLog(ProductTestContraller.class);
+
     @GetMapping("/updateStore")
     public String updateStore(String productNo){
         System.out.println("8083======");
+        log.info("product-updateStore-----------");
         //尽量使用自动锁代替手写锁
         //设置锁的超时时间。防止对象一直占有锁，造成死锁
         //降低锁的使用粒度，尽量不要多个功能使用同一把锁

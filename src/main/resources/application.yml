@@ -4,5 +4,5 @@ spring:
   application:
     name: product-server
   profiles:
-    active: dev
+    active: sit
 
